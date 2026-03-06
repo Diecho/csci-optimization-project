@@ -15,6 +15,11 @@ The goal here is to teach you real-world optimization strategies beyond the basi
 3. When you're doing development, code slow-and-safe (enable ASAN and UBSAN and the safe C++ library), but turn all this off and turn on -O3 (the optimizer) in the compiler and recompile everything
 
 
+Person 1 : Diego Hidalgo
+Person 2: Jun Kuang
+Person 3: Ayden Yang 
+Person 4: Jackson D. 
+
 ===============================================================================================
 
 Your group will need to make a Github, and each partner will need to work in their own branches
