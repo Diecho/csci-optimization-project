@@ -21,7 +21,7 @@ std::vector<Student> read_cvs(const std::string& filename) {
 		std::getline(ss, token, ',');
 		if(token ==  ""){
 			s.is_valid = false;
-			break;
+			continue;
 		}
 		s.gender= token;
 
@@ -32,7 +32,7 @@ std::vector<Student> read_cvs(const std::string& filename) {
 
 		if(token == ""){
 			s.is_valid = false;
-			break;
+			continue;
 		}
 		s.attendance_rate= std::stod(token);
 
@@ -44,7 +44,7 @@ std::vector<Student> read_cvs(const std::string& filename) {
 
 		if(token == ""){
 			s.is_valid = false;
-			break;
+			continue;
 		}
 		s.stress_index= std::stod(token);
 
@@ -52,7 +52,7 @@ std::vector<Student> read_cvs(const std::string& filename) {
 
 		if(token == ""){
 			s.is_valid = false;
-			break;
+			continue;
 		}
 		s.gpa = std::stod(token);
 
@@ -66,7 +66,7 @@ std::vector<Student> read_cvs(const std::string& filename) {
 
 		if(token == ""){
 			s.is_valid = false;
-			break;
+			continue;
 		}
 		s.dropout= std::stoi(token);
 
