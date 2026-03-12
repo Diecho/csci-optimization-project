@@ -86,14 +86,23 @@ int main(int argc, char* argv[]) {
 
 	cout << "Avg stress_index for a all student: " << total_stress_all / total_students << "\n";
 	cout << "Avg stress_index for a non-dropout student: " << total_stress_non / non_drop_students<< "\n";
-	cout << "Avg stress_index for a dropout student: " << total_stress_drop / n_of_drop << "\n";
+	if(n_of_drop < 1){
+		cout << "Avg stress_index for a dropout student: None\n";
+	}else {
+		cout << "Avg stress_index for a dropout student: " << total_stress_drop / n_of_drop << "\n";
+	}
 
 
 	cout << "------------------------------------------\n";
 
 	cout << "Avg GPA for a all student: " << total_gpa_all / total_students << "\n";
 	cout << "Avg GPA for a non-dropout student: " << total_gpa_non / non_drop_students<< "\n";
-	cout << "Avg GPA for a dropout student: " << total_gpa_drop / n_of_drop << "\n";
+
+	if(n_of_drop < 1){
+		cout << "Avg GPA for a dropout student: None \n";
+	}else {
+		cout << "Avg GPA for a dropout student: " << total_gpa_drop / n_of_drop << "\n";
+	}
 
 	cout << "------------------------------------------\n";
 
@@ -124,7 +133,9 @@ int main(int argc, char* argv[]) {
 
 
 	int trio_count = 0;
-	int limit = 3000; 
+
+	int limit = students.size();
+	if(limit > 3000) limit = 3000;
 
 	cout << "Searching for trios of dropouts with identical GPAs (First " << limit << " students)...\n";
 
