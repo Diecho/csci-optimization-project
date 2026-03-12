@@ -1,9 +1,17 @@
+#include <cstdio>
 #include <iostream>
 #include "cvs_reader.h"
 using namespace std;
 
-int main() {
-	string filename = "student_dropout_dataset_v3.csv";
+int main(int argc, char* argv[]) {
+	string filename = "";
+
+	if(argc > 0) {
+		filename = argv[1];
+	}
+	else filename = "student_dropout_dataset_v3.csv";
+	
+
 
 	cout << "Loading data from: " << filename << "...\n";
 
@@ -15,7 +23,6 @@ int main() {
 	}
 
 	cout << "Successfully loaded " << students.size() << " valid students!\n\n";
-
 
 	int n_of_drop = 0;
 	int total_students = 0;
