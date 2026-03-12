@@ -6,7 +6,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
 	string filename = "";
 
-	if(argc > 0) {
+	if(argc > 1) {
 		filename = argv[1];
 	}
 	else filename = "student_dropout_dataset_v3.csv";
