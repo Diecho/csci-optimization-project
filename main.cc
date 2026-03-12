@@ -74,9 +74,13 @@ int main(int argc, char* argv[]) {
 
 	cout << "Male dropout n: " << count_m << "\n";
 	cout << "Female dropout n: " << count_f << "\n";
-
-	cout << "Male dropout %: " << (static_cast<float>(count_m) / n_of_drop) * 100 << "\n";
-	cout << "Female dropout %: " << (static_cast<float>(count_f) / n_of_drop) * 100 << "\n";
+	if(n_of_drop < 1){
+		cout << "Male dropout %: " << 0 << "\n";
+		cout << "Female dropout %: " << 0 << "\n";
+	}else {
+		cout << "Male dropout %: " << (static_cast<float>(count_m) / n_of_drop) * 100 << "\n";
+		cout << "Female dropout %: " << (static_cast<float>(count_f) / n_of_drop) * 100 << "\n";
+	}
 
 	cout << "------------------------------------------\n";
 
