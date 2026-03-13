@@ -1,6 +1,11 @@
 #include <cstdio>
 #include <iostream>
 #include "cvs_reader.h"
+/*
+#include <chrono>
+using namespace std::chrono;
+using sc = steady_clock;
+*/
 using namespace std;
 
 int main(int argc, char* argv[]) {
@@ -38,8 +43,8 @@ int main(int argc, char* argv[]) {
 	double total_gpa_drop = 0;
 	double total_gpa_all = 0;
 	double total_gpa_non = 0;
-
-
+	//sc::duration total_time = sc::duration::zero();
+	//auto start = sc::now();
 	for(Student& st: students){
 		total_students++;	
 		total_stress_all+=st.stress_index;
@@ -62,7 +67,8 @@ int main(int argc, char* argv[]) {
 			non_drop_students++;
 		}
 	}	
-
+	//auto end = sc::now();
+	//total_time += (end - start);
 	cout << "--- Data ---\n";
 
 	cout << "Total Number of student: " << total_students << "\n";
@@ -110,6 +116,7 @@ int main(int argc, char* argv[]) {
 
 	double similarity_threshold = 0.15;
 	int high_risk_pairs = 0;
+	//start = sc::now();
 
 	for (size_t i = 0; i < students.size(); ++i) {
 		for (size_t j = i + 1; j < students.size(); ++j) {
@@ -126,7 +133,9 @@ int main(int argc, char* argv[]) {
 			}
 		}
 	}
-
+	
+	//end = sc::now();
+	//total_time += (end - start);
 	cout << "Total High-Risk Similar Pairs found: " << high_risk_pairs << "\n";
 
 	cout << "------------------------------------------\n";
@@ -139,6 +148,7 @@ int main(int argc, char* argv[]) {
 
 	cout << "Searching for trios of dropouts with identical GPAs (First " << limit << " students)...\n";
 
+	//start = sc::now();
 	for (int i = 0; i < limit; ++i) {
 		for (int j = i + 1; j < limit; ++j) {
 			for (int k = j + 1; k < limit; ++k) {
@@ -152,6 +162,9 @@ int main(int argc, char* argv[]) {
 			}
 		}
 	}
+	//end = sc::now();
+	//total_time += (end - start);
+	//cout << "loop_time " << (duration<double>(total_time)).count() << endl;
 
 cout << "Total Identical Dropout Trios found: " << trio_count << "\n";
 

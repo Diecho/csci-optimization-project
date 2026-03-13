@@ -1,0 +1,5 @@
+Benchmark Results
+=================
+
+--- A: O0 + ASAN + UBSAN ---
+Run 1: runtime=0 loop=59.667
