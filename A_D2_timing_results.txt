@@ -2,4 +2,56 @@ Benchmark Results
 =================
 
 --- A: O0 + ASAN + UBSAN ---
-Run 1: runtime=0 loop=59.667
+Run 1: runtime=59.859 loop=59.8091
+Run 2: runtime=59.954 loop=59.8067
+Run 3: runtime=59.830 loop=59.7829
+Run 4: runtime=59.793 loop=59.8273
+Run 5: runtime=59.893 loop=59.8679
+Average runtime: 59.8658
+Average loop: 59.8188
+
+--- B: O0 only ---
+Run 1: runtime=18.829 loop=18.8015
+Run 2: runtime=18.854 loop=18.7977
+Run 3: runtime=18.861 loop=18.8046
+Run 4: runtime=18.826 loop=18.8498
+Run 5: runtime=18.855 loop=18.8038
+Average runtime: 18.845
+Average loop: 18.8115
+
+--- C: O3 + ASAN + UBSAN ---
+Run 1: runtime=22.397 loop=22.3588
+Run 2: runtime=22.398 loop=22.3582
+Run 3: runtime=22.397 loop=22.3564
+Run 4: runtime=22.400 loop=22.3617
+Run 5: runtime=22.412 loop=22.3572
+Average runtime: 22.4008
+Average loop: 22.3584
+
+--- D: O3 only ---
+Run 1: runtime=1.083 loop=1.06803
+Run 2: runtime=1.089 loop=1.06756
+Run 3: runtime=1.086 loop=1.07752
+Run 4: runtime=1.085 loop=1.06745
+Run 5: runtime=1.083 loop=1.06765
+Average runtime: 1.0852
+Average loop: 1.06964
+
+--- D2: Ofast ---
+Run 1: runtime=1.068 loop=1.05448
+Run 2: runtime=1.068 loop=1.05583
+Run 3: runtime=1.069 loop=1.05433
+Run 4: runtime=1.069 loop=1.05394
+Run 5: runtime=1.069 loop=1.054
+Average runtime: 1.0686
+Average loop: 1.05452
+
+Speedup Comparison (runtime, baseline B)
+----------------------------------------
+D speedup: 94.2414 %
+C speedup: -18.8687 %
+B speedup: 0 %
+A speedup: -217.675 %
+D2 speedup: 94.3295 %
+
+Benchmark complete.

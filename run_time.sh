@@ -27,12 +27,6 @@ run_test () {
 
     for i in $(seq 1 $RUNS)
     do
-        #output=$(/usr/bin/time -f "REAL %e" ./$BIN 2>&1)
-
-        #runtime=$(echo "$output" | grep REAL | awk '{print $2}')
-        #loop=$(echo "$output" | grep loop_time | awk '{print $2}')
-
-
         # Run program and capture its stdout (where loop_time is printed)
 	program_output=$(./$BIN)
 
@@ -40,12 +34,12 @@ run_test () {
 	loop=$(echo "$program_output" | grep "loop_time" | awk '{print $2}')
 
 	# Capture real runtime separately using /usr/bin/time
-	runtime=$(/usr/bin/time -f "%e" ./$BIN 1> /dev/null 2>&1)
-
+	runtime=$( { time ./$BIN >/dev/null; } 2>&1 | grep real | sed 's/.*m//; s/s//' )
+	echo "DEBUG runtime='$runtime'"
 	# Avoid empty values
 	loop=${loop:-0}
 	runtime=${runtime:-0}
-        
+
 	echo "Run $i: runtime=$runtime loop=$loop" >> $OUTPUT
 
         total_runtime=$(awk "BEGIN {print $total_runtime + $runtime}")
