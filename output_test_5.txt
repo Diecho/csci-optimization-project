@@ -1,0 +1,26 @@
+Loading data from: test_5.csv...
+Successfully loaded 18 valid students!
+
+--- Data ---
+Total Number of student: 18
+Total Number of student dropouts: 10
+Dropouts %: 55.5556
+------------------------------------------
+Male dropout n: 5
+Female dropout n: 5
+Male dropout %: 50
+Female dropout %: 50
+------------------------------------------
+Avg stress_index for a all student: 1
+Avg stress_index for a non-dropout student: 1
+Avg stress_index for a dropout student: 1
+------------------------------------------
+Avg GPA for a all student: 1
+Avg GPA for a non-dropout student: 1
+Avg GPA for a dropout student: 1
+------------------------------------------
+Finding high-risk pairs (Similar profiles, different outcomes)...
+Total High-Risk Similar Pairs found: 80
+------------------------------------------
+Searching for trios of dropouts with identical GPAs (First 18 students)...
+Total Identical Dropout Trios found: 120

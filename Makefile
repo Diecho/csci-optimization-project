@@ -31,7 +31,7 @@ pgo_gen: $(SRCS) $(HEADERS)
 
 # E: PGO Use 
 pgo_use: $(SRCS) $(HEADERS)
-	$(CXX) $(STD) $(WARN) -O3 -fprofile-use $(SRCS) -o bin_E_use
+	$(CXX) $(STD) $(WARN) -O3 -fprofile-use $(SRCS) -o bin_E_gen
 
 # F: PGO + LTO Generate
 lto_pgo_gen: $(SRCS) $(HEADERS)
