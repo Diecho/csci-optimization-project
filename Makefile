@@ -35,11 +35,11 @@ pgo_use: $(SRCS) $(HEADERS)
 
 # F: PGO + LTO Generate
 lto_pgo_gen: $(SRCS) $(HEADERS)
-	$(CXX) $(STD) $(WARN) -O3 -flto -fprofile-generate $(SRCS) -o bin_F_gen
+	$(CXX) $(STD) $(WARN) -O3 -flto -fprofile-generate $(SRCS) -o bin_E_gen
 
 # F & G: PGO + LTO Use
 lto_pgo_use: $(SRCS) $(HEADERS)
-	$(CXX) $(STD) $(WARN) -O3 -flto -fprofile-use $(SRCS) -o bin_F_use
+	$(CXX) $(STD) $(WARN) -O3 -flto -fprofile-use $(SRCS) -o bin_E_gen
 
 # Perf version 
 perf_build: $(SRCS) $(HEADERS)

@@ -6,7 +6,7 @@ make perf_build
 
 
 	echo "=========RUNNING DEFAULT=============="
-	./bin_perf
+	perf record -g ./bin_perf
 
 	for i in {0..6}
 	do
@@ -15,7 +15,7 @@ make perf_build
 	#	EXPECTED_FILE="cmp_test_$i.txt"
 	#	ACTUAL_FILE="output_test_$i.txt"
 
-		./bin_perf "$INPUT_FILE"  
+		perf record -g ./bin_perf "$INPUT_FILE"  
 		#> "$ACTUAL_FILE" 2>&1
 
 	#	if diff -q "$ACTUAL_FILE" "$EXPECTED_FILE" > /dev/null; then
