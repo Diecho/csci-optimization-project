@@ -19,7 +19,7 @@ run_test () {
 
     echo "--- $NAME ---" >> $OUTPUT
 
-    make clean > /dev/null
+  #  make clean > /dev/null
     make $TARGET > /dev/null
 
     total_runtime=0
