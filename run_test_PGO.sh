@@ -3,7 +3,7 @@
 
 make pgo_gen 
 # ran an extra test that should fail when there is incorrect input file
-for j in {0..100}
+for j in {0..10000}
 do 
 	echo "\n=================\nrunning $j\n==================\n"
 
