@@ -1,0 +1,176 @@
+Benchmark Results
+=================
+
+--- A: O0 + ASAN + UBSAN ---
+Run 1: runtime=59.859 loop=59.8091
+Run 2: runtime=59.954 loop=59.8067
+Run 3: runtime=59.830 loop=59.7829
+Run 4: runtime=59.793 loop=59.8273
+Run 5: runtime=59.893 loop=59.8679
+Average runtime: 59.8658
+Average loop: 59.8188
+
+--- B: O0 only ---
+Run 1: runtime=18.829 loop=18.8015
+Run 2: runtime=18.854 loop=18.7977
+Run 3: runtime=18.861 loop=18.8046
+Run 4: runtime=18.826 loop=18.8498
+Run 5: runtime=18.855 loop=18.8038
+Average runtime: 18.845 seconds
+Average loop: 18.8115 seconds
+
+--- C: O3 + ASAN + UBSAN ---
+Run 1: runtime=22.397 loop=22.3588
+Run 2: runtime=22.398 loop=22.3582
+Run 3: runtime=22.397 loop=22.3564
+Run 4: runtime=22.400 loop=22.3617
+Run 5: runtime=22.412 loop=22.3572
+Average runtime: 22.4008 seconds
+Average loop: 22.3584 seconds
+
+--- D: O3 only ---
+Run 1: runtime=1.083 loop=1.06803
+Run 2: runtime=1.089 loop=1.06756
+Run 3: runtime=1.086 loop=1.07752
+Run 4: runtime=1.085 loop=1.06745
+Run 5: runtime=1.083 loop=1.06765
+Average runtime: 1.0852 seconds
+Average loop: 1.06964 seconds
+
+--- D2: Ofast ---
+Run 1: runtime=1.068 loop=1.05448
+Run 2: runtime=1.068 loop=1.05583
+Run 3: runtime=1.069 loop=1.05433
+Run 4: runtime=1.069 loop=1.05394
+Run 5: runtime=1.069 loop=1.054
+Average runtime: 1.0686 seconds
+Average loop: 1.05452 seconds
+
+
+--- E: PGO + O3 ---
+Run 1: runtime=0.46 loop=NA
+Run 2: runtime=0.47 loop=NA
+Run 3: runtime=0.43 loop=NA
+Run 4: runtime=0.47 loop=NA
+Run 5: runtime=0.46 loop=NA
+Average runtime 0.458 seconds
+Average loop: NA
+
+--- F: PGO + LTO + O3 ---
+Run 1: runtime=0.48 loop=NA
+Run 2: runtime=0.49 loop=NA
+Run 3: runtime=0.46 loop=NA
+Run 4: runtime=0.46 loop=NA
+Run 5: runtime=0.49 loop=NA
+Average runtime 0.476 seconds
+Average loop: NA
+
+--- G: Likely + Unlikely + PGO + LTO + O3 + ASAN + UBSAN ---
+Run 1: runtime=0.46 loop=NA
+Run 2: runtime=0.50 loop=NA
+Run 3: runtime=0.46 loop=NA
+Run 4: runtime=0.46 loop=NA
+Run 5: runtime=0.46 loop=NA
+Average runtime 0.468 seconds
+Average loop: NA
+
+Speedup Comparison (runtime, baseline B)
+----------------------------------------
+A speedup: -217.675 %
+B speedup: 0 %
+C speedup: -18.8687 %
+D speedup: 94.2414 %
+D2 speedup: 94.3295 %
+E speedup: 97.5696 %
+F speedup: 97.4741 %
+G speedup: 97.6333 %
+
+=================
+Benchmark complete.
+
+GCOV Report
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/stl_construct.h'
+Lines executed:81.25% of 16
+Creating 'stl_construct.h.gcov'
+-------------------------------------------------------
+File 'cvs_reader.h'
+No executable lines
+Removing 'cvs_reader.h.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/new_allocator.h'
+Lines executed:92.31% of 13
+Creating 'new_allocator.h.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/move.h'
+Lines executed:87.50% of 16
+Creating 'move.h.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/stl_function.h'
+Lines executed:75.00% of 4
+Creating 'stl_function.h.gcov'
+-------------------------------------------------------
+File '/usr/include/aarch64-linux-gnu/c++/14/bits/c++config.h'
+Lines executed:100.00% of 1
+Creating 'c++config.h.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/basic_string.tcc'
+Lines executed:74.14% of 58
+Creating 'basic_string.tcc.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/basic_string.h'
+Lines executed:87.50% of 88
+Creating 'basic_string.h.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/stl_iterator.h'
+Lines executed:100.00% of 23
+Creating 'stl_iterator.h.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/stl_vector.h'
+Lines executed:100.00% of 28
+Creating 'stl_vector.h.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/allocator.h'
+Lines executed:58.33% of 12
+Creating 'allocator.h.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/alloc_traits.h'
+Lines executed:100.00% of 5 
+Creating 'alloc_traits.h.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/ptr_traits.h'
+Lines executed:100.00% of 6
+Creating 'ptr_traits.h.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/char_traits.h'
+Lines executed:28.81% of 59
+Creating 'char_traits.h.gcov'
+-------------------------------------------------------
+File 'main.cc'
+Lines executed:100.00% of 87
+Creating 'main.cc.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/stl_iterator_base_funcs.h'
+Lines executed:100.00% of 3
+Creating 'stl_iterator_base_funcs.h.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/bits/stl_iterator_base_types.h'
+Lines executed:100.00% of 1
+Creating 'stl_iterator_base_types.h.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/type_traits'
+Lines executed:100.00% of 2
+Creating 'type_traits.gcov'
+-------------------------------------------------------
+File '/usr/include/c++/14/new'
+Lines executed:66.67% of 3
+Creating 'new.gcov'
+-------------------------------------------------------
+Lines executed:80.94% of 425
+
+
+Data Scientist something interesting:
+Our data analysis showed a high overall dropout rate of 23%, with more female students dropping out than males. As expected, the data also showed a strong trend where students experiencing higher stress levels and lower GPAs were significantly more likely to drop out.
+
+Pogo Stick something interesting:
+It was easy to make but really hard to read?
